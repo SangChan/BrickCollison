@@ -13,9 +13,26 @@
 // HelloWorldLayer
 @interface HelloWorldLayer : CCLayer
 {
+    CCSprite *ball;
+    CCSprite *paddle;
+    NSMutableArray *targets;
+    
+    int BRICKS_HEIGHT;
+    int BRICKS_WIDTH;
+    
+    BOOL isPlaying;
+    BOOL isPaddleTouched;
+    
+    CGPoint ballMovement;
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;
+
+-(void)initBrick;
+-(void)initBall;
+-(void)initPaddle;
+-(void)startGame;
+-(void)processCollision:(CCSprite*)brick;
 
 @end
